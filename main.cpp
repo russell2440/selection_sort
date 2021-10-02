@@ -9,19 +9,25 @@ int passes = 0;
 const unsigned int len = sizeof (numbers) /sizeof *numbers;
 unsigned int *input = numbers;
 
+// Their is one major pass over array, each current index, ci, 
+// will end up being greater than previous.
+// The innter logic uses the ci to start scanning for the next
+// largest element.
 void selection_sort(void) {
   // Sort input by running buble sort 
   // passes until all sorting us done
-  for(int i = 0; i < len; i++){
-    unsigned int *p = input;
-    unsigned int *pp = p+1;
-    for(int j = 0; j < len-1; j++, p++, pp++){
-      if(*p > *pp){
-        unsigned int tmp = *pp;
-        *pp = *p;
-        *p = tmp;
-      }
+  unsigned int *p = input;
+  for(int i = 0; i < len; i++, p++){
+    unsigned int *cm = p;
+    unsigned int *pp = p;
+    for(int j = i; j < len; j++, pp++){
+      if(*cm > *pp){
+        cm = pp;
+       }
     }
+    unsigned int tmp = *cm;
+    *cm = *p;
+    *p = tmp;
   }
   return;
 }
