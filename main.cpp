@@ -16,18 +16,18 @@ unsigned int *input = numbers;
 void selection_sort(void) {
   // Sort input by running buble sort 
   // passes until all sorting us done
-  unsigned int *p = input;
-  for(int i = 0; i < len; i++, p++){
-    unsigned int *cm = p;
-    unsigned int *pp = p;
-    for(int j = i; j < len; j++, pp++){
-      if(*cm > *pp){
-        cm = pp;
+  unsigned int *pi = input;
+  for(int i = 0; i < len; i++, pi++){
+    unsigned int *pm = pi;
+    unsigned int *pj = pi;
+    for(int j = i; j < len; j++, pj++){
+      if(*pm > *pj){
+        pm = pj;
        }
     }
-    unsigned int tmp = *cm;
-    *cm = *p;
-    *p = tmp;
+    unsigned int tmp = *pi;
+    *pi = *pm;
+    *pm = tmp;
   }
   return;
 }
